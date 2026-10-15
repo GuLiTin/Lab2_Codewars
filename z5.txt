@@ -1,0 +1,34 @@
+function primeFactors(n){
+  let i = 2;
+  let count = 0;
+  let text = "";
+    do
+      {
+        if(n % i == 0)
+          {
+            n /= i;
+            count++;
+            if(n == 1)
+              {
+                console.log(`(${i})`);
+                text += `(${i})`;
+              }
+          }
+        else
+          {
+            if(count > 1)
+              {
+                console.log(`(${i}**${count})`);
+                text += `(${i}**${count})`;
+              }
+            else if(count == 1)
+              {
+                console.log(`(${i})`);
+                text += `(${i})`;
+              }
+            i++;
+            count = 0;
+          }
+      }while(n != 1);
+  return text;
+}

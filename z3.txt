@@ -1,0 +1,26 @@
+function whatCentury(year)
+{
+  let yearInt = parseInt(year);
+  yearInt = Math.floor(yearInt / 100);
+  let secYear = parseInt(year) % 100;
+  if(secYear > 0) yearInt++;
+  let lastYear = yearInt % 10;
+  if(yearInt < 20) return `${yearInt}th`;
+  switch(lastYear)
+  {
+      case 1:
+      return `${yearInt}st`;
+      break;
+      case 2:
+      return `${yearInt}nd`;
+      break;
+      case 3:
+      return `${yearInt}rd`;
+      break;
+      case 4:
+      return `${yearInt}th`;
+      break;
+      default:
+      return `${yearInt}th`;
+  }
+}

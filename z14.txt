@@ -1,0 +1,16 @@
+function isCircleSorted( arr ){
+  let drops = 0;
+  let n = arr.length;
+  for(let i = 0;i < n - 1;i++)
+    {
+      if(arr[i] > arr[i+1])
+        {
+          drops++;
+        }
+    }
+  if(arr[n - 1] > arr[0])
+    {
+      drops++;
+    }
+  return drops <= 1 ? true : false;
+}

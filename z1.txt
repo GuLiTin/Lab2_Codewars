@@ -1,0 +1,45 @@
+function hasTwoCubeSums(n) {
+  let flag = false;
+	let flag2 = false;
+  let a,b,c,d;
+  for(let i = 1;i < Math.cbrt(n);i++)
+  {
+    let r = n - Math.pow(i,3);
+    for(let j = 1;j < Math.cbrt(n);j++)
+    {
+      if(Math.pow(j,3) == r)
+      {
+        a = i;
+        b = j;
+        flag = true;
+        break;
+      }
+    }
+  }
+  for(let i = 1;i < Math.cbrt(n);i++)
+  {
+    if(i == a || i == b) continue;
+    let r = n - Math.pow(i,3);
+    for(let j = 1;j < Math.cbrt(n);j++)
+    {
+      if(j == b) continue;
+      if(Math.pow(j,3) == r)
+      {
+        c = i;
+        d = i;
+        flag2 = true;
+        break;
+      }
+    }
+  }
+  if(flag && flag2)
+  {
+    console.log(`${n} = ${a}^3 + ${b}^3 = ${c}^3 + ${d}^3`);
+    return true;
+  }
+  else
+  {
+    console.log(`Не получилось!`);
+    return false;
+  }
+}

@@ -1,0 +1,15 @@
+function wave(str){
+  let letters = str.split('');
+  let mexico = [];
+  for(let i = 0;i < letters.length;i++)
+    {
+      if(letters[i] == ' ')
+        {
+          continue;
+        }
+          letters[i] = letters[i].toUpperCase();
+          mexico.push(letters.join(''));
+          letters[i] = letters[i].toLowerCase();
+    }
+  return mexico;
+}

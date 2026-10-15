@@ -1,0 +1,54 @@
+function findMissing(list) {  
+  let firstNum = 0,secondNum = 0,lostNum = 0;
+  let flag = false, startFlag = false;
+  for(let i = 0; i < list.length - 1; i++)
+  {
+    if(flag == false)
+    {
+      if(startFlag == false)
+      {
+        firstNum = list[i+1] - list[i];
+        flag = true;
+        startFlag = true;
+      }
+      else
+      {
+        firstNum = list[i+1] - list[i];
+        if(firstNum == secondNum)
+        {
+          flag = true;
+        }
+        else
+        {
+          lostNum = list[i] + (firstNum - secondNum);
+          console.log(lostNum);
+          break;
+        }
+      }
+    }
+    else
+    {
+      secondNum = list[i+1] - list[i];
+      if(firstNum == secondNum)
+      {
+        flag = false;
+      }
+      else
+      {
+        if(firstNum > secondNum)
+        {
+          lostNum = list[i-1] + (firstNum - secondNum);
+          console.log(lostNum);
+          break;
+        }
+        else
+        {
+          lostNum = list[i] + (secondNum - firstNum);
+          console.log(lostNum);
+          break;
+        }
+      }
+    }
+  }
+  return lostNum;
+}

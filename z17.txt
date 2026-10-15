@@ -1,0 +1,15 @@
+function cache(func) 
+{
+  let storage = {};
+  function wrap(...args) 
+  {
+    let key = JSON.stringify(args);
+    if (!(key in storage)) 
+    {
+      storage[key] = func(...args);
+    }
+    return storage[key];
+  }
+
+  return wrap;
+}

@@ -1,0 +1,17 @@
+function ipv4Parser(ip, mask){
+  let ipv4 = ip.split('.');
+  let Mask = mask.split('.');
+  let Network_prefix = new Array(4);
+  let Host_identifier = new Array(4);
+  for(let i = 0;i < 4;i++)
+  {
+    Network_prefix[i] = ipv4[i] & (~Mask[i] & 0xFF);
+    Host_identifier[i] = ipv4[i] & Mask[i];
+  }
+  Host_identifier = Host_identifier.join('.');
+  Network_prefix = Network_prefix.join('.');
+  console.log(Host_identifier);
+  console.log(Network_prefix);
+  let mas = [Host_identifier,Network_prefix];
+  return mas;
+}

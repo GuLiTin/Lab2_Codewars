@@ -1,0 +1,24 @@
+function toWeirdCase(string){
+  let letters = string.split('');
+  let count = 0;
+  for(let i = 0;i < letters.length;i++)
+    {
+      if(letters[i] != ' ')
+        {
+          if(count % 2 == 0 || count == 0)
+          {
+          letters[i] = letters[i].toUpperCase();
+          }
+          else
+          {
+          letters[i] = letters[i].toLowerCase();
+          }
+          count++;
+        }
+      else
+        {
+          count = 0;
+        }
+    }
+  return letters.join('');
+}

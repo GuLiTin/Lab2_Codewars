@@ -1,0 +1,18 @@
+function expandedForm(num) {
+  let str = num.toString();
+  let res = [];
+  for(let i = 0;i < str.length;i++)
+    {
+      let digit = str[i];
+      if(digit != '0')
+        {
+          let t = digit;
+          for(let j = i + 1;j < str.length;j++)
+            {
+              t += '0';
+            }
+          res.push(t);
+        }
+    }
+  return res.join(' + ');
+}

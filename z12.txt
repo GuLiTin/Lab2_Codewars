@@ -1,0 +1,24 @@
+function longest(arr, n) {
+  let copy = arr.slice();
+  for(let i = 1;i < n;i++)
+    {
+      let maxIndex = 0;
+      for(let j = 1;j < copy.length;j++)
+        {
+          if(copy[j].length > copy[maxIndex].length)
+            {
+              maxIndex = j;
+            }
+        }
+      copy[maxIndex] = "";
+    }
+  let result = "";
+  for(let i = 0;i < copy.length;i++)
+    {
+      if(copy[i].length > result.length)
+        {
+          result = copy[i];
+        }
+    }
+  return result;
+}
